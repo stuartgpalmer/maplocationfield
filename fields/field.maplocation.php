@@ -70,7 +70,7 @@
 
 				$ch = new Gateway;
 				$ch->init();
-				$ch->setopt('URL', 'http://maps.googleapis.com/maps/api/geocode/json?address='.urlencode($address).'&sensor=false&v=3.13');
+				$ch->setopt('URL', '//maps.googleapis.com/maps/api/geocode/json?address='.urlencode($address).'&sensor=false&v=3.13');
 				$response = json_decode($ch->exec());
 
 				$coordinates = $response->results[0]->geometry->location;
@@ -146,7 +146,7 @@
 
 		public function displayPublishPanel(&$wrapper, $data=NULL, $flagWithError=NULL, $fieldnamePrefix=NULL, $fieldnamePostfix=NULL, $entry_id=NULL){
 			if (class_exists('Administration') && Administration::instance()->Page) {
-				Administration::instance()->Page->addScriptToHead('http://maps.google.com/maps/api/js?sensor=false', 79);
+				Administration::instance()->Page->addScriptToHead('//maps.google.com/maps/api/js?sensor=false', 79);
 				Administration::instance()->Page->addStylesheetToHead(URL . '/extensions/maplocationfield/assets/maplocationfield.publish.css', 'screen', 78);
 				Administration::instance()->Page->addScriptToHead(URL . '/extensions/maplocationfield/assets/maplocationfield.publish.js', 80);
 			}
